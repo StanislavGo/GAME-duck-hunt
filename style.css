@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700&family=Raleway:wght@100;400;700&family=VT323&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -41,11 +43,21 @@ Start Game Block
     overflow: hidden;
 
 }
+
+.black-block-for-start-window {
+    margin-top: 450px;
+    width: 900px;
+    height: 285px;
+    background: black;
+    position: relative;
+    z-index: 9999;
+}
+
 .start-game img {
     width: 1100px;
     height: 750px;
     background-size: contain;
-    position: relative;
+    position: absolute;
     display: block;
     margin: 50px;
     z-index: 9999;
@@ -54,17 +66,17 @@ Start Game Block
 
 .start-game button {
     appearance: none;
+    width: 280px;
+    height: 70px;
     background-color: #FFFFFF;
-    border-radius: 40em;
+    border-radius: 20px;
     border-style: none;
     box-shadow: #ADCFFF 0 -12px 6px inset;
     box-sizing: border-box;
     color: #000000;
     cursor: pointer;
-    font-family: -apple-system,sans-serif;
     font-weight: 700;
     letter-spacing: -.24px;
-    margin-bottom: 30px 0;
     outline: none;
     quotes: auto;
     text-align: center;
@@ -74,9 +86,10 @@ Start Game Block
     user-select: none;
     -webkit-user-select: none;
     display: block;
-    position: relative;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    left: calc(50% - 140px);
+    margin-top: 80px;
+    font-family: 'VT323', monospace;
     
     z-index: 9999;
     }
@@ -93,7 +106,7 @@ Start Game Block
     
     @media (min-width: 768px) {
         .start-game button {
-        font-size: 1.5rem;
+        font-size: 35px;
         padding: .75rem 2rem;
     }
     }
