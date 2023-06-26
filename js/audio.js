@@ -17,7 +17,7 @@ soundBtn.onclick = function() {
     audioPlayer.muted = muted;
 }
 function duckHuntIntroSound() {
-    let audio = new Audio('/duck-hunt/Sound/duck-hunt-intro.mp3');
+    let audio = new Audio('sound/duck-hunt-intro.mp3');
     audioPlayer.volume = 0.1;
     audio.muted = muted;
     audioPlayer.play();

@@ -7,12 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+
     <div id="app">
         <div class="start-game">
             <audio src="sound/duck-hunt-intro.mp3" id="audio"></audio>
             <img src="images/startImage.png">
+            <div class="black-block-for-start-window">
+                <button id="btnStartGame">Start Game</button>
+            </div>
 
-            <button id="btnStartGame">Start Game</button>
         </div>
         <div id="game-elements">
             <div class="sound">
@@ -45,6 +48,5 @@
     <script src="ducks.js"></script>
     <script src="dog.js"></script>
     <script src="audio.js"></script>
-    
 </body>
 </html>
