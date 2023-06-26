@@ -134,4 +134,55 @@ Helpers
 .hidden {
     display: none;
 }
-  
+/**
+Ducks
+*/
+.duck {
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    position: absolute;
+    top: 700px;
+    left: calc(50% - 75px);
+    transition: all 0.1s ease-out;
+    z-index: 9999;
+}
+.duck.skin-1 {
+    background-image: url(images/blueDuck1.png);
+}
+.duck.skin-2 {
+    background-image: url(images/greenDuck1.png);
+    background-repeat: no-repeat;
+}
+.duck.skin-3 {
+    background-image: url(images/redDuck1.png);
+    background-repeat: no-repeat;
+}
+.duck.skin-1.boom {
+    background-image: url(images/blueDuckShot.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.duck.skin-2.boom {
+    background-image: url(images/greenDuckShot.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.duck.skin-3.boom {
+    background-image: url(images/redDuckShot.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.dog {
+    background-image: url(images/dogWalk1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 150px;
+    background-size: contain;
+    position: absolute;
+    top: 700px;
+    left: calc(50% - 100px);
+    transition: all 0.1s ease-out;
+    z-index: 9999;
+}
