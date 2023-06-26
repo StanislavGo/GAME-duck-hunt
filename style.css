@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    overflow: hidden;
+}
+
+#app {
+    min-height: 100%;
+    position: relative;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+}
+
+/**
+Start Game Block
+*/
+.start-game {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+
+}
+.start-game img {
+    width: 1100px;
+    height: 750px;
+    background-size: contain;
+    position: relative;
+    display: block;
+    margin: 50px;
+    z-index: 9999;
+}
+
+
+.start-game button {
+    appearance: none;
+    background-color: #FFFFFF;
+    border-radius: 40em;
+    border-style: none;
+    box-shadow: #ADCFFF 0 -12px 6px inset;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    font-family: -apple-system,sans-serif;
+    font-weight: 700;
+    letter-spacing: -.24px;
+    margin-bottom: 30px 0;
+    outline: none;
+    quotes: auto;
+    text-align: center;
+    text-decoration: none;
+    transition: all .15s;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    display: block;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    
+    z-index: 9999;
+    }
+    
+    .start-game button:hover {
+    background-color: #FFC229;
+    box-shadow: #FF6314 0 -6px 8px inset;
+    transform: scale(1.125);
+    }
+    
+    .start-game button:active {
+    transform: scale(1.025);
+    }
+    
+    @media (min-width: 768px) {
+        .start-game button {
+        font-size: 1.5rem;
+        padding: .75rem 2rem;
+    }
+    }
+
+/**
+Game Elements
+*/
+
+    #game-elements img {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+/**
+Menu
+*/
+.sound svg {
+display: flex;
+position: relative;
+z-index: 19999;
+width: 50px;
+height: 50px;
+fill: #fff;
+margin: 5px 5px;
+}
+.sound {
+cursor: pointer;
+}
+
+/**
+Helpers
+*/
+.hidden {
+    display: none;
+}
+  
