@@ -1,7 +1,6 @@
-let startGameBtn = document.querySelector("#startBtn");
 
-startGameBtn.onclick = function() {
-    let startGameWindow = document.querySelector('.start-game-window');
-
-        startGameWindow.style.display = "none";
+btnStartGame.onclick = function() {
+    let startGameBlock = document.querySelector('.start-game');
+    startGameBlock.style.display = 'none';
+    duckHuntIntroSound();
 }
