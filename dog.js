@@ -59,22 +59,50 @@ let images = [
   'url(images/dogJump2.png)'
 ];
 let currentIndex = 0;
+let dogJump = false;
+
+function moveDog() {
+  let timerID = setInterval(function() {
+    dog.style.left = dog.offsetLeft + 24 + "px";
+    if(dog.offsetLeft > 500) {
+      clearInterval(timerID);
+    }
+  } ,180)
+}
 
 function jumpDog() {
   dog.style.backgroundImage = images[currentIndex];
   
   if (currentIndex == images.length - 1) {
-    dog.style.top = 100 + "px"; // Пригає на 200px вгору
-    dog.classList.add('hidden'); // Додає клас 'hidden'
+    dog.style.top = 310 + "px"; // Пригає на 200px вгору
+    dogJump = true;
     // setTimeout(jumpDog, 500);
   } else {
-    dog.style.top = dog.offsetTop - 90  + 'px'; // Повертається до початкового положення
     dog.classList.remove('hidden'); // Видаляє клас 'hidden'
     currentIndex = (currentIndex + 1) % images.length; // Змінюємо індекс картинки
-    setTimeout(jumpDog, 500); // Затримка 500 мілісекунд перед зміною картинки
+    setTimeout(jumpDog, 890); // Затримка 1000 мілісекунд перед зміною картинки
+  } if (dogJump) {
+    dogDown();
   }
 }
 
+let dogDownPossition = false;
+
+function dogDown() {
+  setTimeout(function() {
+    let timerID = setInterval(function() {
+      dog.style.top = dog.offsetTop + 10 + "px";
+      dogDownPossition = true;
+    }, 100)
+    if(dogDown) {
+      setTimeout(function() {
+        dog.style.zIndex = "-100"
+        dog.remove();
+        clearInterval(timerID);
+      }, 200)
+    }
+  } , 200)
+}
 
 
   
