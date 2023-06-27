@@ -4,6 +4,7 @@ btnStartGame.onclick = function() {
     startGameBlock.style.display = 'none';
     duckHuntIntroSound();
     createDuck();
+    moveDog();
     jumpDog();
 }
 isGameOver = false;
@@ -12,4 +13,3 @@ function random(min,max) {
     let rand = min + Math.random() * (max + 1 - min);
     return Math.floor(rand);
 }
-
