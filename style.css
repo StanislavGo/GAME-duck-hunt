@@ -27,9 +27,9 @@ body {
     height: 100%;
 }
 
-/**
+/***************
 Start Game Block
-*/
+****************/
 .start-game {
     width: 100%;
     height: 100%;
@@ -111,45 +111,47 @@ Start Game Block
     }
     }
 
-/**
+/************
 Game Elements
-*/
+*************/
 
-    #game-elements img {
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-    }
-
-/**
-Menu
-*/
-.sound svg {
-display: flex;
-position: relative;
-z-index: 19999;
-width: 50px;
-height: 50px;
-fill: #fff;
-margin: 5px 5px;
+#game-elements img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
-.sound {
-cursor: pointer;
+*******
+*TARGET
+*******
+*/
+    
+.target {
+    background-image: url(images/target.png);
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 9999;
+    transition: all 0.1s ease-out;
+    position: absolute;
+    top: 300px;
+    left: calc(50% - 100px);
 }
 
-/**
+/******
 Helpers
-*/
+*******/
 .hidden {
     display: none;
 }
-/**
+/*****
 Ducks
-*/
+*****/
 .duck {
     width: 150px;
     height: 150px;
@@ -199,3 +201,207 @@ Ducks
     transition: all 0.1s ease-out;
     z-index: 9999;
 }
+
+/*******
+Menu
+*******/
+.sound svg {
+    display: flex;
+    position: relative;
+    z-index: 19999;
+    width: 50px;
+    height: 50px;
+    fill: #fff;
+    margin: 5px 5px;
+    }
+    .sound {
+    cursor: pointer;
+    }
+
+.scoreContent {
+    width: fit-content;
+    text-align: center;
+    background-color: black;
+    border-radius: 15px;
+    padding: 2px 2px;
+    margin: 0 10px;
+    border-color: #16ec33;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-style: solid;
+    padding: 3px;
+    border-width: 4px;
+}
+.scoreText {
+    font-size: 40px;
+    color: hsl(0, 0%, 99%);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'VT323';
+    font-weight: bold;
+}
+.scoreNumber {
+    color: hsl(0, 0%, 99%);
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'VT323';
+}
+.menu {
+    display: flex;
+    padding: 5px 5px;
+    position: relative;
+    z-index: 19999;
+    justify-content: space-between;
+    top: 810px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    flex-direction: row;
+}
+.roundContent {
+    width:fit-content;
+    text-align: center;
+    background-color: black;
+    border-radius: 10px;
+    padding: 2px 0px;
+    margin: 0 5px;
+    top: 750px;
+    left: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 3px;
+    height: fit-content;
+    
+}
+.roundText {
+    font-size: 40px;
+    color: #16ec33;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'VT323';
+    font-weight: bold;
+}
+.roundNumber {
+    color: #16ec33;
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'VT323';
+}
+.shotContent {
+    width: fit-content;
+    text-align: center;
+    background-color: black;
+    border-radius: 15px;
+    margin: 0;
+    border-color: #16ec33;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-style: solid;
+    border-width: 4px;
+    justify-content: space-evenly;
+}
+.bullets {
+    padding-top: 4px !important;
+    display: flex;
+    justify-content: center;
+}
+.bullets svg{
+    width: 48px;
+    height: 48px;
+    fill: #fff;
+    background-size: contain;
+    justify-content: space-around;
+    display: flex;
+    padding: 2px 2px;
+}
+.shotText {
+    font-size: 40px;
+    color: #2eddd7;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'VT323';
+    font-weight: bold;
+}
+.hitContent {
+    width: fit-content;
+    text-align: center;
+    background-color: black;
+    border-radius: 15px;
+    margin: 0;
+    border-color: #16ec33;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-style: solid;
+    border-width: 4px;
+    justify-content: flex-start;
+}
+.hitDucks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2px;
+}
+.hitText {
+    font-size: 40px;
+    color: #16ec33;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'VT323';
+    font-weight: bold;
+}
+.hitDucks svg {
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 2px;
+}
+.filter-white {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(332deg) brightness(103%) contrast(102%);
+}
+.filter-red {
+    filter: invert(43%) sepia(96%) saturate(7129%) hue-rotate(7deg) brightness(99%) contrast(101%);
+}
+.filter-blue  {
+    filter: invert(80%) sepia(82%) saturate(802%) hue-rotate(134deg) brightness(91%) contrast(88%);
+}
+.blueLines svg {
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+
+}
+.blueLines {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
