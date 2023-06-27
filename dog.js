@@ -47,6 +47,7 @@
 // }
 
 let dog = document.querySelector('.dog');
+
 let images = [
   'url(images/dogWalk1.png)',
   'url(images/dogWalk2.png)',
@@ -62,12 +63,12 @@ let currentIndex = 0;
 function jumpDog() {
   dog.style.backgroundImage = images[currentIndex];
   
-  if (currentIndex === images.length - 1) {
-    dog.style.top = '0px'; // Пригає на 200px вгору
+  if (currentIndex == images.length - 1) {
+    dog.style.top = 100 + "px"; // Пригає на 200px вгору
     dog.classList.add('hidden'); // Додає клас 'hidden'
     // setTimeout(jumpDog, 500);
   } else {
-    dog.style.top = '700px'; // Повертається до початкового положення
+    dog.style.top = dog.offsetTop - 90  + 'px'; // Повертається до початкового положення
     dog.classList.remove('hidden'); // Видаляє клас 'hidden'
     currentIndex = (currentIndex + 1) % images.length; // Змінюємо індекс картинки
     setTimeout(jumpDog, 500); // Затримка 500 мілісекунд перед зміною картинки

@@ -193,8 +193,8 @@ Ducks
     width: 200px;
     height: 150px;
     background-size: contain;
-    position: absolute;
-    top: 700px;
+    position: relative;
+    top: 500px;
     left: calc(30% - 100px);
     transition: all 0.1s ease-out;
     z-index: 9999;
