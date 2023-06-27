@@ -256,7 +256,8 @@ Menu
 }
 .menu {
     display: flex;
-    padding: 5px 5px;
+    padding-left: 50px;
+    padding-right: 50px;
     position: relative;
     z-index: 19999;
     justify-content: space-between;
