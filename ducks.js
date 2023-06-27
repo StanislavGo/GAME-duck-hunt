@@ -17,5 +17,6 @@ function createDuck() {
     duck.style.left = left + "px";
     
     app.appendChild(duck);
+    // duck.classList.add(hidden);
 }
 
