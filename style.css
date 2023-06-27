@@ -195,7 +195,7 @@ Ducks
     background-size: contain;
     position: relative;
     top: 500px;
-    left: calc(30% - 100px);
+    left: 30px;
     transition: all 0.1s ease-out;
     z-index: 9999;
 }
