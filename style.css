@@ -164,11 +164,11 @@ Ducks
     background-image: url(images/blueDuck1.png);
 }
 .duck.skin-2 {
-    background-image: url(images/greenDuck1.png);
+    background-image: url(images/greenDuck1-right.png);
     background-repeat: no-repeat;
 }
 .duck.skin-3 {
-    background-image: url(images/redDuck1.png);
+    background-image: url(images/redDuck1-left.png);
     background-repeat: no-repeat;
 }
 .duck.skin-1.boom {
