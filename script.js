@@ -4,7 +4,7 @@ btnStartGame.onclick = function() {
     startGameBlock.style.display = 'none';
     duckHuntIntroSound();
     createDuck();
-    movedog();
+    jumpDog();
 }
 isGameOver = false;
 let app = document.querySelector('#game-elements');
