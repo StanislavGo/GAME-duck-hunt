@@ -103,8 +103,3 @@ function dogDown() {
     }
   } , 200)
 }
-
-
-  
-
-  
