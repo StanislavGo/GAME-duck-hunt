@@ -73,7 +73,7 @@ function moveDog() {
 function jumpDog() {
   dog.style.backgroundImage = images[currentIndex];
   
-  if (currentIndex == images.length - 1) {
+  if (currentIndex == images.length - 2) {
     dog.style.top = 310 + "px"; // Пригає на 200px вгору
     dogJump = true;
     // setTimeout(jumpDog, 500);
@@ -84,6 +84,7 @@ function jumpDog() {
   } if (dogJump) {
     dogDown();
   }
+
 }
 
 let dogDownPossition = false;
