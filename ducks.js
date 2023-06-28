@@ -103,23 +103,26 @@ function createDogwithDuck(){
 
 function photoCilledDuck(duck, skin) {
     if (skin == "skin-1") { 
-      duck.style.backgroundImage = "url(images/blueDuckShot.png)"
-    }
-    if (skin == "skin-2") {
-      duck.style.backgroundImage = "url(images/greenDuckShot.png)"
-    }
-    if (skin == "skin-3") {
-      duck.style.backgroundImage = "url(images/redDuckShot.png)"  
+      duck.style.backgroundImage = "url(images/blueDuckShot.png)";
+    } else if(skin == "skin-2") {
+      duck.style.backgroundImage = "url(images/greenDuckShot.png)";
+    }else if(skin == "skin-3"){
+      duck.style.backgroundImage = "url(images/redDuckShot.png)";  
     }
 
 }
+
+let score = 0;
 
 function kill(duck) {
   duck.addEventListener('click', function () {
     setTimeout(photoCilledDuck(), 1000)
     // photoCilledDuck();
     duck.remove();
-    createDogwithDuck();  
+    createDogwithDuck(); 
+    let changeScore = document.querySelector('.scoreNumber'); 
+    score = score + 500;
+    changeScore.innerText = score;
   });
 }
 
