@@ -6,6 +6,7 @@ btnStartGame.onclick = function() {
     createDuck();
     moveDog();
     jumpDog();
+    // kill(duck);
 }
 isGameOver = false;
 let app = document.querySelector('#game-elements');
