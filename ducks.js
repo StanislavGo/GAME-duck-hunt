@@ -2,6 +2,8 @@
 // -Вилітаює одна качка з рандомного місця і рухається подіагоналі.
 // -якщо качка долетіла докраю екрана, вона зникає
 // -Якщо її підбили, то вона падає i коли торкаэться трави падає
+let roundNumber = 1;
+let duckCount = 0;
 
 function createDuck() {
   if(isGameOver) {
@@ -19,9 +21,32 @@ function createDuck() {
     moveDuck(duck);
 
     kill(duck);
+
+    duckCount++;
+
+    if (duckCount === 10) {
+      showRoundNumber();
+      duckCount = 0;
+    }
+
   }, 9000)
   
 }
+let round = document.querySelector('.roundNumber');
+
+function showRoundNumber() {
+  roundNumber++;
+  let roundBoard = document.createElement('div');
+  roundBoard.className = 'bord_round';
+  roundBoard.innerText = "Round " + roundNumber;
+  app.appendChild(roundBoard);
+  round.innerText = roundNumber
+  setTimeout(function () {
+    roundBoard.remove();
+  }, 2000);
+}
+
+// let bulletCount = 3;
 
 
 function moveDuck(duck){
@@ -29,6 +54,7 @@ function moveDuck(duck){
       duck.style.top = duck.offsetTop - 50 + "px";
       if (duck.offsetTop < -duck.offsetHeight) {
         clearInterval(timerID);
+        removeBullet();
         duck.remove();
         createDog();
       }
@@ -87,6 +113,19 @@ function createDog() {
   }, 2000);
 }
 
+function createDogWithoutDuck() {
+  let dog = document.createElement('div');
+  dog.className = "dog";
+  dog.style.top = "500px";
+  dog.style.left = "50%";
+  dog.style.zIndex = "8000";
+  changeBackgroundImage(dog);
+  app.appendChild(dog);
+  setTimeout(function () {
+    dog.remove();
+  }, 2000);
+}
+
 function createDogwithDuck(){
   let dog = document.createElement('div');
   dog.className = "dog";
@@ -97,34 +136,32 @@ function createDogwithDuck(){
   app.appendChild(dog);
   setTimeout(function () {
     dog.remove();
-    createDuck();
+    // createDuck();
   }, 2000);
 }
 
-function photoCilledDuck(duck, skin) {
-    if (skin == "skin-1") { 
-      duck.style.backgroundImage = "url(images/blueDuckShot.png)";
-    } else if(skin == "skin-2") {
-      duck.style.backgroundImage = "url(images/greenDuckShot.png)";
-    }else if(skin == "skin-3"){
-      duck.style.backgroundImage = "url(images/redDuckShot.png)";  
-    }
-
-}
-
 let score = 0;
+let bullet = document.querySelector('.bullet');
 
 function kill(duck) {
   duck.addEventListener('click', function () {
-    setTimeout(photoCilledDuck(), 1000)
-    // photoCilledDuck();
     duck.remove();
     createDogwithDuck(); 
     let changeScore = document.querySelector('.scoreNumber'); 
     score = score + 500;
     changeScore.innerText = score;
+    createDuck();
   });
 }
+
+
+function removeBullet() {
+  if (bullet) {
+    bullet.remove();
+  }
+}
+
+
 
 
 
