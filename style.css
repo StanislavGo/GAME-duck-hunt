@@ -16,7 +16,6 @@ body {
     justify-content: center;
     align-items: center;
     background-color: black;
-    overflow: hidden;
 }
 
 #app {
@@ -25,6 +24,7 @@ body {
     z-index: 9999;
     width: 100%;
     height: 100%;
+    cursor:crosshair;
 }
 
 /***************
@@ -42,7 +42,7 @@ Start Game Block
     justify-content: flex-start;
     overflow: hidden;
 
-}
+} 
 
 .black-block-for-start-window {
     margin-top: 450px;
@@ -124,22 +124,31 @@ Game Elements
     left: 0;
     z-index: -1;
 }
+
 *******
 *TARGET
 *******
 */
 .target {
-    background-image: url(../images/target.png);
-    transition: all 0.1s ease-out;
-    top: 300px;
-    left: 500px;
+    min-height: 100%;
+    position: relative;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    
+}
+.target img {
     position: absolute;
-    width: 200px;
-    height: 200px;
+    top: calc( 50%  -85px);
+    left: calc( 50%  -85px);
+    width: 170px;
+    height: 170px;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: 9999;
+    z-index: 99999;
+    transform:translate3d(-50%,-50%,0);
+    transition:transform 0.2s cubic-bezier(.02,1.23,.79,1.08);
 }
 /******
 Helpers
