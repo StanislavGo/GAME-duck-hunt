@@ -21,10 +21,11 @@ body {
 #app {
     min-height: 100%;
     position: relative;
-    z-index: 9999;
+    z-index: 1;
     width: 100%;
     height: 100%;
-    cursor:crosshair;
+    cursor: crosshair;
+
 }
 
 /***************
@@ -41,6 +42,7 @@ Start Game Block
     align-items: center;
     justify-content: flex-start;
     overflow: hidden;
+    cursor:auto !important;
 
 } 
 
@@ -51,6 +53,7 @@ Start Game Block
     background: black;
     position: relative;
     z-index: 9999;
+    cursor:auto !important;
 }
 
 .start-game img {
@@ -61,6 +64,7 @@ Start Game Block
     display: block;
     margin: 50px;
     z-index: 9999;
+    cursor:auto !important;
 }
 
 
@@ -122,7 +126,8 @@ Game Elements
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: 2;
+    
 }
 
 *******
@@ -172,14 +177,18 @@ Ducks
 }
 .duck.skin-1 {
     background-image: url(images/blueDuck1.png);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .duck.skin-2 {
     background-image: url(images/greenDuck1-right.png);
     background-repeat: no-repeat;
+    background-position: center;
 }
 .duck.skin-3 {
     background-image: url(images/redDuck1-left.png);
     background-repeat: no-repeat;
+    background-position: center;
 }
 .duck.skin-1.boom {
     background-image: url(images/blueDuckShot.png);
@@ -221,9 +230,10 @@ Menu
     height: 50px;
     fill: #fff;
     margin: 5px 5px;
+    cursor: pointer !important;
     }
     .sound {
-    cursor: pointer;
+    cursor: pointer !important;
     }
 
 .scoreContent {

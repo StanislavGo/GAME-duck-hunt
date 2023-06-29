@@ -8,7 +8,13 @@ function createTarget() {
             target.style.left = e.pageX + 'px';
             target.style.top = e.pageY + 'px';
         }
-    document.addEventListener('mousemove', onMouseMove);
-
-}
-
+        const onClick = () => {
+            target.click(); // Simulate a click on the target element
+          };
+        
+          const targetElement = document.querySelector('.target');
+          targetElement.addEventListener('click', onClick);
+        
+          document.addEventListener('mousemove', onMouseMove);
+          target.style.pointerEvents = 'none';
+        }

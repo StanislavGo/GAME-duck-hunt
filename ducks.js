@@ -29,7 +29,7 @@ function createDuck() {
       duckCount = 0;
     }
 
-  }, 9000)
+  }, 3000);
   
 }
 let round = document.querySelector('.roundNumber');
@@ -79,12 +79,12 @@ function moveDuck(duck){
           }, 900);
         } else if (duck.classList.contains('skin-3')) {
           // Зміна backgroundIamge для "skin-3"
-          duck.style.backgroundImage = "url(images/redDuck1.png)";
+          duck.style.backgroundImage = "url(images/redDuck1-left.png)";
           setTimeout(function() {
-            duck.style.backgroundImage = "url(images/redDuck2.png)";
+            duck.style.backgroundImage = "url(images/redDuck2-left.png)";
           }, 800);
           setTimeout(function() {
-            duck.style.backgroundImage = "url(images/redDuck3.png)";
+            duck.style.backgroundImage = "url(images/redDuck3-left.png)";
           }, 900);
         }
       }
@@ -145,14 +145,30 @@ let bullet = document.querySelector('.bullet');
 
 function kill(duck) {
   duck.addEventListener('click', function () {
+    let skinClass = duck.className.match(/skin-\d/)[0];
+    let boomClass = duck.className.includes('boom') ? 'boom' : '';
+
+    if (skinClass === 'skin-1') {
+      duck.style.backgroundImage = `url(images/blueDuckShot.png)`;
+    } else if (skinClass === 'skin-2') {
+      duck.style.backgroundImage = `url(images/greenDuckShot.png)`;
+    } else if (skinClass === 'skin-3') {
+      duck.style.backgroundImage = `url(images/redDuckShot.png)`;
+    }
+    
+    setTimeout(function() {
     duck.remove();
     createDogwithDuck(); 
     let changeScore = document.querySelector('.scoreNumber'); 
     score = score + 500;
     changeScore.innerText = score;
     createDuck();
+  }, 500);
   });
 }
+
+
+  
 
 
 function removeBullet() {

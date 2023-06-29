@@ -6,11 +6,13 @@ btnStartGame.onclick = function() {
     targetPngVissibility.style.visibility = "visible";
     console.dir(targetPngVissibility);
     duckHuntIntroSound();
-    createDuck();
     moveDog();
     jumpDog();
     // kill(duck);
     createTarget();
+    setTimeout(() => {
+    createDuck();
+}, 6000);
 }
 isGameOver = false;
 let app = document.querySelector('#game-elements');
