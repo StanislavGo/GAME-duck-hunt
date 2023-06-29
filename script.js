@@ -2,6 +2,9 @@ let btnStartGame = document.getElementById('btnStartGame');
 btnStartGame.onclick = function() {
     let startGameBlock = document.querySelector('.start-game');
     startGameBlock.style.display = 'none';
+    let targetPngVissibility = document.querySelector("#target-png");
+    targetPngVissibility.style.visibility = "visible";
+    console.dir(targetPngVissibility);
     duckHuntIntroSound();
     createDuck();
     moveDog();

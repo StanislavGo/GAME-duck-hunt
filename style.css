@@ -149,6 +149,7 @@ Game Elements
     z-index: 99999;
     transform:translate3d(-50%,-50%,0);
     transition:transform 0.2s cubic-bezier(.02,1.23,.79,1.08);
+    visibility: hidden;
 }
 /******
 Helpers
