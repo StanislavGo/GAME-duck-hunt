@@ -2,6 +2,7 @@
 // -Вилітаює одна качка з рандомного місця і рухається подіагоналі.
 // -якщо качка долетіла докраю екрана, вона зникає
 // -Якщо її підбили, то вона падає i коли торкаэться трави падає
+let app1 = document.getElementById('app');
 let roundNumber = 1;
 let duckCount = 0;
 
@@ -22,17 +23,22 @@ function createDuck() {
 
     kill(duck);
 
-    duckCount++;
-
-    if (duckCount === 10) {
+    if (duckCount == 10) {
       showRoundNumber();
       duckCount = 0;
+      
+      duck.remove();
+      // createDuck();
     }
 
+    if(roundNumber == 10){
+      roundNumber_10(duck);
+    }
   }, 3000);
   
 }
 let round = document.querySelector('.roundNumber');
+
 
 function showRoundNumber() {
   roundNumber++;
@@ -44,54 +50,66 @@ function showRoundNumber() {
   setTimeout(function () {
     roundBoard.remove();
   }, 2000);
+  createDuck();
 }
 
-// let bulletCount = 3;
+let bullet = document.querySelector('.bullet');
+
+let bulletCount = 5;
+let spid = 10;
+
+
 
 
 function moveDuck(duck){
    let timerID = setInterval(function() {
-      duck.style.top = duck.offsetTop - 50 + "px";
+      if(roundNumber < 5){
+        spid = 10;
+      }else if(roundNumber > 5){
+        spid = 30;
+      }
+      duck.style.top = duck.offsetTop - spid + "px";
+      
       if (duck.offsetTop < -duck.offsetHeight) {
         clearInterval(timerID);
-        removeBullet();
         duck.remove();
         createDog();
+        duckCount++;
+        removeBullet(duck);
       }
+
       function changeBackgroundImage() {
         if (duck.classList.contains('skin-1')) {
           // Зміна backgroundIamge для "skin-1"
           duck.style.backgroundImage = "url(images/blueDuck1.png)";
           setTimeout(function() {
             duck.style.backgroundImage = "url(images/blueDuck2.png)";
-          }, 800);
+          }, 700);
           setTimeout(function() {
             duck.style.backgroundImage = "url(images/blueDuck3.png)";
-          }, 900);
+          }, 800);
         } else if (duck.classList.contains('skin-2')) {
           // Зміна backgroundIamge для "skin-2"
           duck.style.backgroundImage = "url(images/greenDuck1-right.png)";
           setTimeout(function() {
             duck.style.backgroundImage = "url(images/greenDuck2-right.png)";
-          }, 800);
+          }, 700);
           setTimeout(function() {
             duck.style.backgroundImage = "url(images/greenDuck3-right.png)";
-          }, 900);
+          }, 800);
         } else if (duck.classList.contains('skin-3')) {
           // Зміна backgroundIamge для "skin-3"
           duck.style.backgroundImage = "url(images/redDuck1-left.png)";
           setTimeout(function() {
             duck.style.backgroundImage = "url(images/redDuck2-left.png)";
-          }, 800);
+          }, 700);
           setTimeout(function() {
             duck.style.backgroundImage = "url(images/redDuck3-left.png)";
-          }, 900);
+          }, 800);
         }
       }
 
-      
-      // Виклик функції changeBackgroundImage() кожну секунду
-      setInterval(changeBackgroundImage, 1000);
+      setInterval(changeBackgroundImage, 500);
    }, 500);
 }
 
@@ -113,18 +131,6 @@ function createDog() {
   }, 2000);
 }
 
-function createDogWithoutDuck() {
-  let dog = document.createElement('div');
-  dog.className = "dog";
-  dog.style.top = "500px";
-  dog.style.left = "50%";
-  dog.style.zIndex = "8000";
-  changeBackgroundImage(dog);
-  app.appendChild(dog);
-  setTimeout(function () {
-    dog.remove();
-  }, 2000);
-}
 
 function createDogwithDuck(){
   let dog = document.createElement('div');
@@ -136,12 +142,10 @@ function createDogwithDuck(){
   app.appendChild(dog);
   setTimeout(function () {
     dog.remove();
-    // createDuck();
   }, 2000);
 }
 
 let score = 0;
-let bullet = document.querySelector('.bullet');
 
 function kill(duck) {
   duck.addEventListener('click', function () {
@@ -158,6 +162,18 @@ function kill(duck) {
     
     setTimeout(function() {
     duck.remove();
+    duckCount++;
+    if (duckCount == 10) {
+      // bulletBoard.innerText = "Perfect +1000"
+      score = score + 1000;
+      let scoreBoard = document.createElement('div');
+      scoreBoard.className = 'bord_round';
+      scoreBoard.innerText = "Perfect +1000";
+      app.appendChild(scoreBoard);
+      setTimeout(function () {
+        scoreBoard.remove();
+      }, 2000);
+    }
     createDogwithDuck(); 
     let changeScore = document.querySelector('.scoreNumber'); 
     score = score + 500;
@@ -168,15 +184,25 @@ function kill(duck) {
 }
 
 
-  
-
-
-function removeBullet() {
-  if (bullet) {
-    bullet.remove();
-  }
+function roundNumber_10(duck){
+    duck.remove();
+    createDog();
 }
 
+let bulletBoard = document.querySelector('.bord_round');
+
+function removeBullet(duck){
+  // bullet.remove();
+  bulletCount--;
+  bullet.innerText = bulletCount;
+  console.dir(bulletCount);
+
+  if(bulletCount == 0){
+    bulletBoard.innerText = "You lost Game"
+    duck.remove();
+    createDog();
+  }
+}
 
 
 
