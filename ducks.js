@@ -84,33 +84,33 @@ function moveDuck(duck){
           duck.style.backgroundImage = "url(images/blueDuck1.png)";
           setTimeout(function() {
             duck.style.backgroundImage = "url(images/blueDuck2.png)";
-          }, 700);
+          }, 200);
           setTimeout(function() {
             duck.style.backgroundImage = "url(images/blueDuck3.png)";
-          }, 800);
+          }, 300);
         } else if (duck.classList.contains('skin-2')) {
           // Зміна backgroundIamge для "skin-2"
           duck.style.backgroundImage = "url(images/greenDuck1-right.png)";
           setTimeout(function() {
             duck.style.backgroundImage = "url(images/greenDuck2-right.png)";
-          }, 700);
+          }, 200);
           setTimeout(function() {
             duck.style.backgroundImage = "url(images/greenDuck3-right.png)";
-          }, 800);
+          }, 300);
         } else if (duck.classList.contains('skin-3')) {
           // Зміна backgroundIamge для "skin-3"
           duck.style.backgroundImage = "url(images/redDuck1-left.png)";
           setTimeout(function() {
             duck.style.backgroundImage = "url(images/redDuck2-left.png)";
-          }, 700);
+          }, 200);
           setTimeout(function() {
             duck.style.backgroundImage = "url(images/redDuck3-left.png)";
-          }, 800);
+          }, 300);
         }
       }
 
-      setInterval(changeBackgroundImage, 500);
-   }, 500);
+      setInterval(changeBackgroundImage, 100);
+   }, 200);
 }
 
 function changeBackgroundImage(dog) {
@@ -198,9 +198,14 @@ function removeBullet(duck){
   console.dir(bulletCount);
 
   if(bulletCount == 0){
-    bulletBoard.innerText = "You lost Game"
+    let lose = document.createElement('div');
+    lose.className = 'bord_round';
+    lose.innerText = "You lost Game";
+    app.appendChild(lose);
+    setTimeout(function () {
+      lose.remove();
+    }, 2000);
     duck.remove();
-    createDog();
   }
 }
 
