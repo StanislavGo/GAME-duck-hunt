@@ -424,13 +424,13 @@ Menu
     justify-content: center;
 }
 
-.bord_round{
+.bord_round {
     width: fit-content;
     text-align: center;
     background-color: black;
     border-radius: 15px;
     margin: 0 auto;
-    border-color: #16ec33;
+    border-color: #fcfcfc;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -442,5 +442,7 @@ Menu
     color: #fff;
     z-index: 9999;
     position: relative;
+    font-family: 'VT323';
+    padding: 20px;
 }
 
