@@ -22,6 +22,7 @@ function createDuck() {
     duckFlappingSound();
     moveDuck(duck);
 
+    fail();
     kill(duck);
 
     if (duckCount == 10) {
@@ -152,6 +153,27 @@ function createDogwithDuck(){
 }
 
 let score = 0;
+
+function fail() {
+  document.getElementById('app').addEventListener('click', function(e) {
+    if (e.target.id !== 'sound-icon' && !e.target.classList.contains('duck')) {
+      gunShotSound();
+      bulletCount--;
+      bullet.innerText = bulletCount;
+    }
+    if(bulletCount == 0){
+      let lose = document.createElement('div');
+      lose.className = 'bord_round';
+      lose.innerText = "You lost Game";
+      loseSound();
+      app.appendChild(lose);
+      setTimeout(function () {
+        lose.remove();
+      }, 2000);
+      duck.remove();
+    }
+  });
+}
 
 function kill(duck) {
   duck.addEventListener('click', function () {
