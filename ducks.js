@@ -149,11 +149,11 @@ function kill(duck) {
     let boomClass = duck.className.includes('boom') ? 'boom' : '';
 
     if (skinClass === 'skin-1') {
-      duck.style.backgroundImage = `url(images/blueDuckShot.png)`;
+      duck.style.backgroundImage = "url(images/blueDuckShot.png)";
     } else if (skinClass === 'skin-2') {
-      duck.style.backgroundImage = `url(images/greenDuckShot.png)`;
+      duck.style.backgroundImage = "url(images/greenDuckShot.png)";
     } else if (skinClass === 'skin-3') {
-      duck.style.backgroundImage = `url(images/redDuckShot.png)`;
+      duck.style.backgroundImage = "url(images/redDuckShot.png)";
     }
     
     setTimeout(function() {
