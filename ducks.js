@@ -1,7 +1,3 @@
-// -Рух качки:
-// -Вилітаює одна качка з рандомного місця і рухається подіагоналі.
-// -якщо качка долетіла докраю екрана, вона зникає
-// -Якщо її підбили, то вона падає i коли торкаэться трави падає
 let app1 = document.getElementById('app');
 let roundNumber = 1;
 let duckCount = 0;
@@ -27,13 +23,12 @@ function createDuck() {
     kill(duck);
 
     if (duckCount == 10) {
-
-      changeMenuWithDuckColor();
       
       setTimeout(function() {
+        changeMenuWithDuckColor();
         showRoundNumber();
         duckCount = 0;
-      }, 3000)
+      }, 3000);
       
       duck.remove();
       // createDuck();
@@ -54,7 +49,7 @@ function showGameOverMenu() {
   endGameBlock.style.display = "block";
 
   let endGameScore = document.querySelector(".end-game-score");
-  endGameScore.innerText = score;
+  endGameScore.innerText = `Score: ${score}\nPerfect Rounds: ${perfectRounds}`;
 }
 
 
@@ -77,17 +72,32 @@ function showRoundNumber() {
 let bullet = document.querySelector('.bullet');
 
 let bulletCount = 3;
-let spid = 20;
+let spid = 10;
 
 
-
+let missedDuckCount = 0;
+let totalMissedDucks = 2;
 
 function moveDuck(duck){
    let timerID = setInterval(function() {
-      if(roundNumber < 5){
+      if(roundNumber == 2){
+        spid = 15;
+      } else if(roundNumber == 3){
         spid = 20;
-      }else if(roundNumber > 5){
+      }else if(roundNumber == 4){
+        spid = 25;
+      } else if(roundNumber == 5){
         spid = 30;
+      } else if(roundNumber == 6){
+        spid = 35;
+      } else if(roundNumber == 7){
+        spid = 38;
+      } else if(roundNumber == 8){
+        spid = 41;
+      } else if(roundNumber == 9){
+        spid = 44;
+      } else if(roundNumber == 10){
+        spid = 47;
       }
       duck.style.top = duck.offsetTop - spid + "px";
       
@@ -100,6 +110,7 @@ function moveDuck(duck){
         removeBullet(duck);
       }
 
+    
       function changeBackgroundImage() {
         if (duck.classList.contains('skin-1')) {
           // Зміна backgroundIamge для "skin-1"
@@ -132,7 +143,7 @@ function moveDuck(duck){
       }
 
       setInterval(changeBackgroundImage, 200);
-   }, 200);
+  }, 200);
 }
 
 function changeBackgroundImage(dog) {
@@ -180,7 +191,6 @@ function fail() {
   });
 }
 
-
 function kill(duck) {
   duck.addEventListener('click', function () {
     changeDucksColor();
@@ -196,31 +206,33 @@ function kill(duck) {
     } else if (skinClass === 'skin-3') {
       duck.style.backgroundImage = "url(images/redDuckShot.png)";
     }
-    
+
     setTimeout(function() {
-    
-    duck.remove();
-    duckCount++;
-    duckCill++;
-    if (duckCill == 10) {
-      // bulletBoard.innerText = "Perfect +1000"
-      score = score + 1000;
-      let scoreBoard = document.createElement('div');
-      scoreBoard.className = 'bord_round';
-      scoreBoard.innerText = "Perfect +1000";
-      highScoreSound();
-      app.appendChild(scoreBoard);
-      setTimeout(function () {
-        scoreBoard.remove();
-      }, 3000);
-    }
-    createDogwithDuck(); 
-    let changeScore = document.querySelector('.scoreNumber'); 
-    score = score + 500;
-    changeScore.innerText = score;
-    createDuck();
-  }, 500);
-  });
+      duck.remove();
+      duckCount++;
+      duckCill++;
+  
+      if (duckCill == 10) {
+        score += 1000;
+        let scoreBoard = document.createElement('div');
+        scoreBoard.className = 'bord_round';
+        scoreBoard.innerText = "Perfect +1000";
+        highScoreSound();
+        app.appendChild(scoreBoard);
+        setTimeout(function () {
+          scoreBoard.remove();
+          duckCill = 0; // Reset the duckCill counter
+        }, 3000);
+        perfectRounds++;
+      }
+  
+      createDogwithDuck();
+      let changeScore = document.querySelector('.scoreNumber');
+      score += 500;
+      changeScore.innerText = score;
+      createDuck();
+    }, 500);
+});
 }
 
 
@@ -286,14 +298,13 @@ function changeDucksColorToBlue() {
 let killedDuck = document.querySelectorAll('.hitDucks img');
 let redDuckId = 10;
 
-// Робити качок білими на меню якщо вбито 10 качек
 function changeMenuWithDuckColor() {
   setTimeout(function() {
-    while(redDuckId != 0) {
-      let redDuckOnMenu = document.querySelector("#duck-" + redDuckId);
-      redDuckOnMenu.className = "filter-white";
-      redDuckId--;
-      duckId = 1;
-    }
-  }, 300)
+    let redDuckOnMenu = document.querySelectorAll(".hitDucks img");
+    redDuckOnMenu.forEach((duck) => {
+      duck.classList.remove("filter-red");
+      duck.classList.add("filter-white");
+    });
+    duckId = 1;
+  }, 300);
 }

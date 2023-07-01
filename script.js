@@ -1,4 +1,5 @@
 let btnStartGame = document.getElementById('btnStartGame');
+let perfectRounds = 0;
 btnStartGame.onclick = function() {
     let startGameBlock = document.querySelector('.start-game');
     startGameBlock.style.display = 'none';
