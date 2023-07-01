@@ -26,8 +26,13 @@ function createDuck() {
     kill(duck);
 
     if (duckCount == 10) {
-      showRoundNumber();
-      duckCount = 0;
+
+      changeMenuWithDuckColor();
+      
+      setTimeout(function() {
+        showRoundNumber();
+        duckCount = 0;
+      }, 3000)
       
       duck.remove();
       // createDuck();
@@ -177,7 +182,9 @@ function fail() {
 
 function kill(duck) {
   duck.addEventListener('click', function () {
+    changeDucksColor();
     gunShotSound();
+    killedDuckCount++;
     let skinClass = duck.className.match(/skin-\d/)[0];
     let boomClass = duck.className.includes('boom') ? 'boom' : '';
     
@@ -188,8 +195,6 @@ function kill(duck) {
     } else if (skinClass === 'skin-3') {
       duck.style.backgroundImage = "url(images/redDuckShot.png)";
     }
-
-
     
     setTimeout(function() {
     
@@ -248,4 +253,35 @@ function removeBullet(duck){
 
 
 
+// Count of killed duck
 
+
+let killedDuckCount = 0;
+let duckId = 1;
+let duckIsWhite = true;
+
+// Робити качку червону на табло, якщо було попадання по качкі
+function changeDucksColor() {
+  setTimeout(function() {
+    let duckOnMenu = document.querySelector("#duck-" + duckId);
+    duckId++;
+  
+    duckOnMenu.className = "filter-red";
+    duckIsWhite = false;
+  }, 500)
+}
+
+let killedDuck = document.querySelectorAll('.hitDucks img');
+let redDuckId = 10;
+
+// Робити качок білими на меню якщо вбито 10 качек
+function changeMenuWithDuckColor() {
+  setTimeout(function() {
+    while(redDuckId != 0) {
+      let redDuckOnMenu = document.querySelector("#duck-" + redDuckId);
+      redDuckOnMenu.className = "filter-white";
+      duckIsWhite = true;
+      redDuckId--;
+    }
+  }, 300)
+}
