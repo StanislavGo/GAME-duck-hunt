@@ -84,32 +84,32 @@ function moveDuck(duck){
           duck.style.backgroundImage = "url(images/blueDuck1.png)";
           setTimeout(function() {
             duck.style.backgroundImage = "url(images/blueDuck2.png)";
-          }, 200);
+          }, 300);
           setTimeout(function() {
             duck.style.backgroundImage = "url(images/blueDuck3.png)";
-          }, 300);
+          }, 400);
         } else if (duck.classList.contains('skin-2')) {
           // Зміна backgroundIamge для "skin-2"
           duck.style.backgroundImage = "url(images/greenDuck1-right.png)";
           setTimeout(function() {
             duck.style.backgroundImage = "url(images/greenDuck2-right.png)";
-          }, 200);
+          }, 300);
           setTimeout(function() {
             duck.style.backgroundImage = "url(images/greenDuck3-right.png)";
-          }, 300);
+          }, 400);
         } else if (duck.classList.contains('skin-3')) {
           // Зміна backgroundIamge для "skin-3"
           duck.style.backgroundImage = "url(images/redDuck1-left.png)";
           setTimeout(function() {
             duck.style.backgroundImage = "url(images/redDuck2-left.png)";
-          }, 200);
+          }, 300);
           setTimeout(function() {
             duck.style.backgroundImage = "url(images/redDuck3-left.png)";
-          }, 300);
+          }, 400);
         }
       }
 
-      setInterval(changeBackgroundImage, 100);
+      setInterval(changeBackgroundImage, 200);
    }, 200);
 }
 
@@ -144,7 +144,7 @@ function createDogwithDuck(){
     dog.remove();
   }, 2000);
 }
-
+let duckCill = 0;
 let score = 0;
 
 function kill(duck) {
@@ -159,11 +159,14 @@ function kill(duck) {
     } else if (skinClass === 'skin-3') {
       duck.style.backgroundImage = "url(images/redDuckShot.png)";
     }
+
+
     
     setTimeout(function() {
     duck.remove();
     duckCount++;
-    if (duckCount == 10) {
+    duckCill++;
+    if (duckCill == 10) {
       // bulletBoard.innerText = "Perfect +1000"
       score = score + 1000;
       let scoreBoard = document.createElement('div');
