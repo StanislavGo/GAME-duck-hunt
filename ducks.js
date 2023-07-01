@@ -22,7 +22,11 @@ function createDuck() {
     duckFlappingSound();
     moveDuck(duck);
 
-    fail();
+    if(failIsActive == false) {
+      fail();
+      failIsActive = true;
+    }
+
     kill(duck);
 
     if (duckCount == 10) {
@@ -97,6 +101,7 @@ function moveDuck(duck){
         createDog();
         duckCount++;
         removeBullet(duck);
+        failIsActive = true;
       }
 
       function changeBackgroundImage() {
@@ -176,6 +181,7 @@ function fail() {
       gunShotSound();
       bulletCount--;
       bullet.innerText = bulletCount;
+      failIsActive = true;
     }
     if(bulletCount == 0){
       let lose = document.createElement('div');
@@ -190,6 +196,8 @@ function fail() {
     }
   });
 }
+
+let failIsActive = false;
 
 function kill(duck) {
   duck.addEventListener('click', function () {
