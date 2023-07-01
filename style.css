@@ -410,6 +410,7 @@ Menu
 .filter-blue  {
     filter: invert(80%) sepia(82%) saturate(802%) hue-rotate(134deg) brightness(91%) contrast(88%);
 }
+
 .blueLines svg {
     width: 20px;
     height: 20px;
@@ -451,5 +452,44 @@ Menu
 */
 
 .end-game {
-    
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: none;
+    background: black;
+    z-index: 2;
+}
+
+.end-game h1 {
+    text-align: center;
+    margin-top: 9%;
+    font-size: 100px;
+    font-family: 'VT323', monospace;
+    color: white;
+}
+
+.end-game h2 {
+    text-align: center;
+    margin-top: 2%;
+    font-size: 100px;
+    font-family: 'VT323', monospace;
+    color: white;
+}
+
+#btnRestartGame {
+    width: 280px;
+    height: 75px;
+    margin-left: calc(50% - 140px);
+    border-radius: 15px;
+    border: none;
+    margin-top: 8%;
+    font-size: 45px;
+    font-family: 'VT323', monospace;
+    transition: .3s all ease-out;
+}
+
+#btnRestartGame:hover {
+    background: grey;
+    cursor: pointer;
+    scale: 1.05;
 }

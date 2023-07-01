@@ -40,11 +40,22 @@ function createDuck() {
 
     if(roundNumber == 10){
       roundNumber_10(duck);
+      showGameOverMenu()
     }
   }, 3000);
   
 }
 let round = document.querySelector('.roundNumber');
+
+function showGameOverMenu() {
+  app1.style.display = "none";
+
+  let endGameBlock = document.querySelector(".end-game");
+  endGameBlock.style.display = "block";
+
+  let endGameScore = document.querySelector(".end-game-score");
+  endGameScore.innerText = score;
+}
 
 
 function showRoundNumber() {
@@ -82,6 +93,7 @@ function moveDuck(duck){
       
       if (duck.offsetTop < -duck.offsetHeight) {
         clearInterval(timerID);
+        changeDucksColorToBlue();
         duck.remove();
         createDog();
         duckCount++;
@@ -258,7 +270,6 @@ function removeBullet(duck){
 
 let killedDuckCount = 0;
 let duckId = 1;
-let duckIsWhite = true;
 
 // Робити качку червону на табло, якщо було попадання по качкі
 function changeDucksColor() {
@@ -267,7 +278,16 @@ function changeDucksColor() {
     duckId++;
   
     duckOnMenu.className = "filter-red";
-    duckIsWhite = false;
+  }, 500)
+}
+
+// Робити колір качки синім
+function changeDucksColorToBlue() {
+  setTimeout(function() {
+    let duckOnMenu = document.querySelector("#duck-" + duckId);
+    duckId++;
+  
+    duckOnMenu.className = "filter-blue";
   }, 500)
 }
 
@@ -280,7 +300,6 @@ function changeMenuWithDuckColor() {
     while(redDuckId != 0) {
       let redDuckOnMenu = document.querySelector("#duck-" + redDuckId);
       redDuckOnMenu.className = "filter-white";
-      duckIsWhite = true;
       redDuckId--;
       duckId = 1;
     }
