@@ -19,8 +19,10 @@ function createDuck() {
     duck.style.left = left + "px";
     
     app.appendChild(duck);
+    duckFlappingSound();
     moveDuck(duck);
 
+    fail();
     kill(duck);
 
     if (duckCount == 10) {
@@ -47,10 +49,13 @@ function showRoundNumber() {
   roundBoard.innerText = "Round " + roundNumber;
   app.appendChild(roundBoard);
   round.innerText = roundNumber
+  nextRoundSound();
   setTimeout(function () {
     roundBoard.remove();
   }, 2000);
+  setTimeout(function () {
   createDuck();
+  }, 3000);
 }
 
 let bullet = document.querySelector('.bullet');
@@ -124,6 +129,7 @@ function createDog() {
   dog.style.left = "50%";
   dog.style.zIndex = "8000";
   changeBackgroundImage(dog);
+  doglaughingSound();
   app.appendChild(dog);
   setTimeout(function () {
     dog.remove();
@@ -139,6 +145,7 @@ function createDogwithDuck(){
   dog.style.left = "50%";
   dog.style.zIndex = "8000";
   dog.style.backgroundImage = "url(images/dogWithDuck1.png)";
+  duckCaughtSound();
   app.appendChild(dog);
   setTimeout(function () {
     dog.remove();
@@ -147,11 +154,33 @@ function createDogwithDuck(){
 let duckCill = 0;
 let score = 0;
 
+function fail() {
+  document.getElementById('app').addEventListener('click', function(e) {
+    if (e.target.id !== 'sound-icon' && !e.target.classList.contains('duck')) {
+      gunShotSound();
+      bulletCount--;
+      bullet.innerText = bulletCount;
+    }
+    if(bulletCount == 0){
+      let lose = document.createElement('div');
+      lose.className = 'bord_round';
+      lose.innerText = "You lost Game";
+      loseSound();
+      app.appendChild(lose);
+      setTimeout(function () {
+        lose.remove();
+      }, 2000);
+      duck.remove();
+    }
+  });
+}
+
 function kill(duck) {
   duck.addEventListener('click', function () {
+    gunShotSound();
     let skinClass = duck.className.match(/skin-\d/)[0];
     let boomClass = duck.className.includes('boom') ? 'boom' : '';
-
+    
     if (skinClass === 'skin-1') {
       duck.style.backgroundImage = "url(images/blueDuckShot.png)";
     } else if (skinClass === 'skin-2') {
@@ -163,6 +192,7 @@ function kill(duck) {
 
     
     setTimeout(function() {
+    
     duck.remove();
     duckCount++;
     duckCill++;
@@ -172,10 +202,11 @@ function kill(duck) {
       let scoreBoard = document.createElement('div');
       scoreBoard.className = 'bord_round';
       scoreBoard.innerText = "Perfect +1000";
+      highScoreSound();
       app.appendChild(scoreBoard);
       setTimeout(function () {
         scoreBoard.remove();
-      }, 2000);
+      }, 3000);
     }
     createDogwithDuck(); 
     let changeScore = document.querySelector('.scoreNumber'); 
@@ -204,6 +235,7 @@ function removeBullet(duck){
     let lose = document.createElement('div');
     lose.className = 'bord_round';
     lose.innerText = "You lost Game";
+    loseSound();
     app.appendChild(lose);
     setTimeout(function () {
       lose.remove();

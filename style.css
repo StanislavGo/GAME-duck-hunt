@@ -339,25 +339,15 @@ Menu
     border-width: 4px;
     justify-content: space-evenly;
 }
-.bullets {
-    padding-top: 4px !important;
-    display: flex;
-    justify-content: center;
-}
-/* .bullets svg{
-    width: 48px;
-    height: 48px;
-    fill: #fff;
-    background-size: contain;
-    justify-content: space-around;
-    display: flex;
-    padding: 2px 2px;
-} */
 
 .bullet{
-    font-size: 36px;
-    padding: 0 auto;
-    color: #fff;
+    color: hsl(0, 0%, 99%);
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'VT323';
 }
 
 .shotText {
@@ -434,13 +424,13 @@ Menu
     justify-content: center;
 }
 
-.bord_round{
+.bord_round {
     width: fit-content;
     text-align: center;
     background-color: black;
     border-radius: 15px;
     margin: 0 auto;
-    border-color: #16ec33;
+    border-color: #fcfcfc;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -452,5 +442,7 @@ Menu
     color: #fff;
     z-index: 9999;
     position: relative;
+    font-family: 'VT323';
+    padding: 20px;
 }
 
