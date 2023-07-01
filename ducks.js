@@ -282,6 +282,7 @@ function changeMenuWithDuckColor() {
       redDuckOnMenu.className = "filter-white";
       duckIsWhite = true;
       redDuckId--;
+      duckId = 1;
     }
   }, 300)
 }
