@@ -158,19 +158,7 @@ function fail() {
   document.getElementById('app').addEventListener('click', function(e) {
     if (e.target.id !== 'sound-icon' && !e.target.classList.contains('duck')) {
       gunShotSound();
-      bulletCount--;
-      bullet.innerText = bulletCount;
-    }
-    if(bulletCount == 0){
-      let lose = document.createElement('div');
-      lose.className = 'bord_round';
-      lose.innerText = "You lost Game";
-      loseSound();
-      app.appendChild(lose);
-      setTimeout(function () {
-        lose.remove();
-      }, 2000);
-      duck.remove();
+      removeBullet(duck);
     }
   });
 }
