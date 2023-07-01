@@ -64,3 +64,9 @@ function loseSound() {
     audio.muted = muted;
     audio.play();
 }
+function failSound() {
+    let audio = new Audio('sound/duck-drop.mp3');
+    audioPlayer.volume = 0.1;
+    audio.muted = muted;
+    audio.play();
+}

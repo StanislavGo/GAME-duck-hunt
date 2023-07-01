@@ -21,11 +21,8 @@ function createDuck() {
     app.appendChild(duck);
     duckFlappingSound();
     moveDuck(duck);
+    fail();
 
-    if(failIsActive == false) {
-      fail();
-      failIsActive = true;
-    }
 
     kill(duck);
 
@@ -79,8 +76,8 @@ function showRoundNumber() {
 
 let bullet = document.querySelector('.bullet');
 
-let bulletCount = 5;
-let spid = 10;
+let bulletCount = 3;
+let spid = 20;
 
 
 
@@ -88,7 +85,7 @@ let spid = 10;
 function moveDuck(duck){
    let timerID = setInterval(function() {
       if(roundNumber < 5){
-        spid = 10;
+        spid = 20;
       }else if(roundNumber > 5){
         spid = 30;
       }
@@ -101,7 +98,6 @@ function moveDuck(duck){
         createDog();
         duckCount++;
         removeBullet(duck);
-        failIsActive = true;
       }
 
       function changeBackgroundImage() {
@@ -178,26 +174,12 @@ let score = 0;
 function fail() {
   document.getElementById('app').addEventListener('click', function(e) {
     if (e.target.id !== 'sound-icon' && !e.target.classList.contains('duck')) {
-      gunShotSound();
-      bulletCount--;
-      bullet.innerText = bulletCount;
-      failIsActive = true;
-    }
-    if(bulletCount == 0){
-      let lose = document.createElement('div');
-      lose.className = 'bord_round';
-      lose.innerText = "You lost Game";
-      loseSound();
-      app.appendChild(lose);
-      setTimeout(function () {
-        lose.remove();
-      }, 2000);
-      duck.remove();
+      failSound();
+    
     }
   });
 }
 
-let failIsActive = false;
 
 function kill(duck) {
   duck.addEventListener('click', function () {
@@ -258,6 +240,7 @@ function removeBullet(duck){
 
   if(bulletCount == 0){
     showGameOverMenu();
+    duck.remove();
     let lose = document.createElement('div');
     lose.className = 'bord_round';
     lose.innerText = "You lost Game";
@@ -266,7 +249,7 @@ function removeBullet(duck){
     setTimeout(function () {
       lose.remove();
     }, 2000);
-    duck.remove();
+    
   }
 }
 
