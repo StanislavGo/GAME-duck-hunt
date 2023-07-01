@@ -40,7 +40,6 @@ function createDuck() {
 
     if(roundNumber == 10){
       roundNumber_10(duck);
-      showGameOverMenu()
     }
   }, 3000);
   
@@ -238,6 +237,7 @@ function kill(duck) {
 function roundNumber_10(duck){
     duck.remove();
     createDog();
+    showGameOverMenu()
 }
 
 let bulletBoard = document.querySelector('.bord_round');
@@ -249,6 +249,7 @@ function removeBullet(duck){
   console.dir(bulletCount);
 
   if(bulletCount == 0){
+    showGameOverMenu();
     let lose = document.createElement('div');
     lose.className = 'bord_round';
     lose.innerText = "You lost Game";
