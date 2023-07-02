@@ -410,7 +410,6 @@ Menu
 .filter-blue  {
     filter: invert(80%) sepia(82%) saturate(802%) hue-rotate(134deg) brightness(91%) contrast(88%);
 }
-
 .blueLines svg {
     width: 20px;
     height: 20px;
@@ -425,7 +424,7 @@ Menu
     justify-content: center;
 }
 
-.bord_round {
+.bord_round{
     width: fit-content;
     text-align: center;
     background-color: black;
@@ -445,6 +444,7 @@ Menu
     position: relative;
     font-family: 'VT323';
     padding: 20px;
+    
 }
 
 /*

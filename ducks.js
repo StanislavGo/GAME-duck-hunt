@@ -61,6 +61,11 @@ function showRoundNumber() {
   app.appendChild(roundBoard);
   round.innerText = roundNumber
   nextRoundSound();
+  let missedDucks = document.querySelectorAll(".hitDucks img.filter-blue");
+  missedDucks.forEach((duck) => {
+    duck.classList.remove("filter-blue");
+    duck.classList.add("filter-white");
+  });
   setTimeout(function () {
     roundBoard.remove();
   }, 2000);
@@ -71,7 +76,7 @@ function showRoundNumber() {
 
 let bullet = document.querySelector('.bullet');
 
-let bulletCount = 3;
+let bulletCount = 5;
 let spid = 10;
 
 
@@ -190,7 +195,7 @@ function fail() {
     }
   });
 }
-
+let roundDuckCount = 0;
 function kill(duck) {
   duck.addEventListener('click', function () {
     changeDucksColor();
@@ -305,6 +310,7 @@ function changeMenuWithDuckColor() {
       duck.classList.remove("filter-red");
       duck.classList.add("filter-white");
     });
+    duckCill  = 0;
     duckId = 1;
   }, 300);
 }
